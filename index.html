@@ -181,6 +181,20 @@ prevAll(与兄弟选择器是一对儿)
     1. 与当前元素同级
     2. 位于当前前元素之后
     ``$(&quot;#nodeid&quot;).prevAll(&quot;p&quot;)``
+prevUntil
+    1.与当前元素同级
+    2.位于当前元素之前
+    3.在当前元素和指定元素之间
+    ``$(&quot;#nodeid&quot;).prevUntil(&quot;div&quot;)
+nextUntil
+    1.与当前元素同级
+    2.位于当前元素之后
+    3.在当前元素和指定元素之间
+    ``$(&quot;#nodeid&quot;).nextUntil(&quot;div&quot;)
+siblings
+    1.prevAll + nextAll
+    **注意在同级中选择器可以命中两个指定节点时，此两个节点都会被选中**
+    ``$(&quot;#nodeid&quot;).siblings()
 </code></pre><h2 id="属性选择器"><a href="#属性选择器" class="headerlink" title="属性选择器"></a>属性选择器</h2><pre><code>$(&quot;input[type]&quot;)          选取拥有type属性值的input节点
 $(&quot;input[type=&apos;text&apos;]&quot;)   选取type属性值为text的input节点
 $(&quot;input[type^=&apos;date&apos;]&quot;)  选取type属性值为date开头的input节点
@@ -290,7 +304,7 @@ $(&quot;input[data-widget][type=&apos;text&apos;]&quot;) 选取具有data-widget
     <aside id="sidebar" class="alignright">
   <div class="search">
   <form action="//google.com/search" method="get" accept-charset="utf-8">
-    <input type="search" name="q" results="0" placeholder="Buscar">
+    <input type="search" name="q" results="0" placeholder="Søk">
     <input type="hidden" name="q" value="site:yoursite.com">
   </form>
 </div>
@@ -299,7 +313,7 @@ $(&quot;input[data-widget][type=&apos;text&apos;]&quot;) 选取具有data-widget
 
   
 <div class="widget tag">
-  <h3 class="title">Etiquetas</h3>
+  <h3 class="title">Tags</h3>
   <ul class="entry">
   
     <li><a href="/tags/MarkDown/">MarkDown</a><small>1</small></li>
