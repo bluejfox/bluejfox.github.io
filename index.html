@@ -145,28 +145,23 @@ __QD__
 </code></pre><h3 id="后代选择器"><a href="#后代选择器" class="headerlink" title="后代选择器"></a>后代选择器</h3><p>获取指定的后代对象</p>
 <pre><code>$(&quot;ul li a&quot;)
 </code></pre><h3 id="通配选择器"><a href="#通配选择器" class="headerlink" title="通配选择器"></a>通配选择器</h3><p>获取所有DOM对象<br>    $(“*”)</p>
-<h2 id="高级选择器"><a href="#高级选择器" class="headerlink" title="高级选择器"></a>高级选择器</h2><h3 id="子选择器"><a href="#子选择器" class="headerlink" title="子选择器"></a>子选择器</h3><p>取得当前直接子代元素</p>
-<pre><code>$(&quot;ul &gt; li&quot;)
-</code></pre><hr>
+<h2 id="高级选择器"><a href="#高级选择器" class="headerlink" title="高级选择器"></a>高级选择器</h2><h3 id="子选择器"><a href="#子选择器" class="headerlink" title="子选择器"></a>子选择器</h3><p>取得当前直接子代元素<br><code>$(&quot;ul &gt; li&quot;)</code></p>
+<hr>
 <p>PS:</p>
 <pre><code>后代选择器和子选择器的区别是
 后代选择器选择的是属于当前父节点的所有子代元素（例如：儿子，孙子，从孙子）
 而子选择器选择的是儿子元素。
 </code></pre><h3 id="相邻元素选择器"><a href="#相邻元素选择器" class="headerlink" title="相邻元素选择器"></a>相邻元素选择器</h3><p>选择的是</p>
-<ul>
+<ol>
 <li>与 + 前元素同级</li>
 <li>与 + 前元素相临</li>
-<li><p>位于 + 前元素之后</p>
-<p>  $(“li + a”)</p>
-</li>
-</ul>
+<li>位于 + 前元素之后<br><code>$(&quot;li + a&quot;)</code></li>
+</ol>
 <h3 id="兄弟选择器"><a href="#兄弟选择器" class="headerlink" title="兄弟选择器"></a>兄弟选择器</h3><p>选择的是</p>
-<ul>
+<ol>
 <li>与 + 前元素同级</li>
-<li><p>位于 + 前元素之后</p>
-<p>  $(“li ~ a”)</p>
-</li>
-</ul>
+<li>位于 + 前元素之后<br><code>$(&quot;li ~ a&quot;)</code></li>
+</ol>
 
       
     </div>
@@ -267,7 +262,7 @@ __QD__
     <aside id="sidebar" class="alignright">
   <div class="search">
   <form action="//google.com/search" method="get" accept-charset="utf-8">
-    <input type="search" name="q" results="0" placeholder="Search">
+    <input type="search" name="q" results="0" placeholder="Suche">
     <input type="hidden" name="q" value="site:yoursite.com">
   </form>
 </div>
