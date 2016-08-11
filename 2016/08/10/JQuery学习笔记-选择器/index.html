@@ -96,7 +96,7 @@
 <ol>
 <li>与 + 前元素同级</li>
 <li><p>位于 + 前元素之后</p>
-<p> $(“li ~ a”)</p>
+<p> &nbsp;<br> $(“li ~ a”)<br> &nbsp;</p>
 </li>
 </ol>
 <hr>
@@ -107,25 +107,27 @@ prev(与相邻元素选择器是一对儿)
     2.与当前元素相临
     3.位于当前元素之前
     4.仅选择一个
-    ``$(&quot;#nodeid&quot;).prev(&quot;p&quot;)``
+    {% code %}
+        $("#nodeid").prev("p")
+        {% endcode %}
 prevAll(与兄弟选择器是一对儿)
     1. 与当前元素同级
     2. 位于当前前元素之后
-    ``$(&quot;#nodeid&quot;).prevAll(&quot;p&quot;)``
+    $(&quot;#nodeid&quot;).prevAll(&quot;p&quot;)
 prevUntil
     1.与当前元素同级
     2.位于当前元素之前
     3.在当前元素和指定元素之间
-    ``$(&quot;#nodeid&quot;).prevUntil(&quot;div&quot;)
+    $(&quot;#nodeid&quot;).prevUntil(&quot;div&quot;)
 nextUntil
     1.与当前元素同级
     2.位于当前元素之后
     3.在当前元素和指定元素之间
-    ``$(&quot;#nodeid&quot;).nextUntil(&quot;div&quot;)
+    $(&quot;#nodeid&quot;).nextUntil(&quot;div&quot;)
 siblings
     1.prevAll + nextAll
     **注意在同级中选择器可以命中两个指定节点时，此两个节点都会被选中**
-    ``$(&quot;#nodeid&quot;).siblings()
+    $(&quot;#nodeid&quot;).siblings()
 </code></pre><h2 id="属性选择器"><a href="#属性选择器" class="headerlink" title="属性选择器"></a>属性选择器</h2><pre><code>$(&quot;input[type]&quot;)          选取拥有type属性值的input节点
 $(&quot;input[type=&apos;text&apos;]&quot;)   选取type属性值为text的input节点
 $(&quot;input[type^=&apos;date&apos;]&quot;)  选取type属性值为date开头的input节点
@@ -135,6 +137,35 @@ $(&quot;input[type!=&apos;text&apos;]&quot;)  选取不具有type属性值或typ
 $(&quot;input[type~=&apos;text&apos;]&quot;)  选取type属性值等于text或text在一个以空格分割的列表中的input节点
 $(&quot;input[type*=&apos;e&apos;]&quot;)     选取type属性值包含``e``的input节点
 $(&quot;input[data-widget][type=&apos;text&apos;]&quot;) 选取具有data-widget属性并且type属性值为text的input节点
+</code></pre><p>#过滤选择器</p>
+<h2 id="基本过滤器"><a href="#基本过滤器" class="headerlink" title="基本过滤器"></a>基本过滤器</h2><pre><code>$(&quot;input[type=&apos;text&apos;]:first&quot;)              选取指定元素中的第一个
+$(&quot;input[type=&apos;text&apos;]:last&quot;)               选取指定元素中的最后一个
+$(&quot;input:not(selector)&quot;)                   选取指定元素中selector没有命中的元素
+$(&quot;div:odd&quot;)                               选取指定元素集合中序列号是奇数的元素(从0开始)
+$(&quot;div:even&quot;)                              选取指定元素集合中序列号是偶数的元素(从0开始)
+$(&quot;div:eq(1)&quot;)                             选取指定元素集合中序列号是1的元素(从0开始)
+$(&quot;div:gt(1)&quot;)                             选取指定元素集合中序列号大于1的元素(从0开始)
+$(&quot;div:lt(1)&quot;)                             选取指定元素集合中序列号小于1的元素(从0开始)
+</code></pre><h2 id="内容过滤器"><a href="#内容过滤器" class="headerlink" title="内容过滤器"></a>内容过滤器</h2><pre><code>$(&quot;div:contains(&apos;N&apos;)&quot;)                     选取包含N文本内容的元素
+$(&quot;div:empty&quot;)                             选取不包含任何子元素和文本的元素
+$(&quot;div:has(&apos;p&apos;)&quot;)                          选取含有p的div,与:not是好基友
+$(&quot;div:parent&quot;)                            选取含有子元素或文本的元素
+</code></pre><hr>
+<pre><code>jQuery也提供了几个和名称:parent相同的函数
+$(&quot;div&quot;).parent(selector)                  选取div的直接父节点，selector用于过滤
+$(&quot;div&quot;).parents(selector)                 选取div的所有父节点，selector用于过滤
+$(&quot;div&quot;).parentsUntil(selector)            选取div与selector之间的节点
+</code></pre><h2 id="可见性过滤器"><a href="#可见性过滤器" class="headerlink" title="可见性过滤器"></a>可见性过滤器</h2><pre><code>$(&quot;div:hidden&quot;)                            选取隐藏元素
+    符合以下几种情况的元素会被选取
+    1.input type=&quot;hidden&quot;
+    2.display:none
+    3.width和height设为0
+    4.以上2和3两种元素的子元素也会被选取
+    5.option元素
+    **补充：visibility=true和opacity=0的元素没有被选中的原因是因为元素虽然不可见，但是还在当前文档中占有位置
+$(&quot;div:visible&quot;)                           选取可见元素
+    符合以下情况的元素会被选取
+    1.width或height不为0的元素
 </code></pre>
       
     </div>
@@ -173,7 +204,7 @@ $(&quot;input[data-widget][type=&apos;text&apos;]&quot;) 选取具有data-widget
 
 
 <section id="comment">
-  <h1 class="title">Kommentarer</h1>
+  <h1 class="title">Comments</h1>
 
   
       <div id="fb-root"></div>
@@ -196,7 +227,7 @@ $(&quot;input[data-widget][type=&apos;text&apos;]&quot;) 选取具有data-widget
     <aside id="sidebar" class="alignright">
   <div class="search">
   <form action="//google.com/search" method="get" accept-charset="utf-8">
-    <input type="search" name="q" results="0" placeholder="Søk">
+    <input type="search" name="q" results="0" placeholder="Search">
     <input type="hidden" name="q" value="site:yoursite.com">
   </form>
 </div>
