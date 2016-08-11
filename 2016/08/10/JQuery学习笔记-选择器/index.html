@@ -71,7 +71,34 @@
 <h1 id="常规选择器"><a href="#常规选择器" class="headerlink" title="常规选择器"></a>常规选择器</h1><h2 id="简单选择器"><a href="#简单选择器" class="headerlink" title="简单选择器"></a>简单选择器</h2><h3 id="id选择器"><a href="#id选择器" class="headerlink" title="id选择器"></a>id选择器</h3><pre><code>$(&quot;#nodeid&quot;)
 </code></pre><h3 id="元素选择器"><a href="#元素选择器" class="headerlink" title="元素选择器"></a>元素选择器</h3><pre><code>$(&quot;div&quot;)
 </code></pre><h3 id="类选择器"><a href="#类选择器" class="headerlink" title="类选择器"></a>类选择器</h3><pre><code>$(&quot;.className&quot;)
-</code></pre>
+</code></pre><h2 id="进阶选择器"><a href="#进阶选择器" class="headerlink" title="进阶选择器"></a>进阶选择器</h2><h3 id="群组选择器"><a href="#群组选择器" class="headerlink" title="群组选择器"></a>群组选择器</h3><p>群组选择器通过<code>,</code>把复数个选择器给连接起来获取对应的节点</p>
+<pre><code>$(&quot;#nodeid, div, .className&quot;)
+</code></pre><h3 id="后代选择器"><a href="#后代选择器" class="headerlink" title="后代选择器"></a>后代选择器</h3><p>获取指定的后代对象</p>
+<pre><code>$(&quot;ul li a&quot;)
+</code></pre><h3 id="通配选择器"><a href="#通配选择器" class="headerlink" title="通配选择器"></a>通配选择器</h3><p>获取所有DOM对象<br>    $(“*”)</p>
+<h2 id="高级选择器"><a href="#高级选择器" class="headerlink" title="高级选择器"></a>高级选择器</h2><h3 id="子选择器"><a href="#子选择器" class="headerlink" title="子选择器"></a>子选择器</h3><p>取得当前直接子代元素</p>
+<pre><code>$(&quot;ul &gt; li&quot;)
+</code></pre><hr>
+<p>PS:</p>
+<pre><code>后代选择器和子选择器的区别是
+后代选择器选择的是属于当前父节点的所有子代元素（例如：儿子，孙子，从孙子）
+而子选择器选择的是儿子元素。
+</code></pre><h3 id="相邻元素选择器"><a href="#相邻元素选择器" class="headerlink" title="相邻元素选择器"></a>相邻元素选择器</h3><p>选择的是</p>
+<ul>
+<li>与 + 前元素同级</li>
+<li>与 + 前元素相临</li>
+<li><p>位于 + 前元素之后</p>
+<p>  $(“li + a”)</p>
+</li>
+</ul>
+<h3 id="兄弟选择器"><a href="#兄弟选择器" class="headerlink" title="兄弟选择器"></a>兄弟选择器</h3><p>选择的是</p>
+<ul>
+<li>与 + 前元素同级</li>
+<li><p>位于 + 前元素之后</p>
+<p>  $(“li ~ a”)</p>
+</li>
+</ul>
+
       
     </div>
     <footer>
@@ -109,7 +136,7 @@
 
 
 <section id="comment">
-  <h1 class="title">Kommentare</h1>
+  <h1 class="title">Comments</h1>
 
   
       <div id="fb-root"></div>
@@ -132,7 +159,7 @@
     <aside id="sidebar" class="alignright">
   <div class="search">
   <form action="//google.com/search" method="get" accept-charset="utf-8">
-    <input type="search" name="q" results="0" placeholder="Suche">
+    <input type="search" name="q" results="0" placeholder="Search">
     <input type="hidden" name="q" value="site:yoursite.com">
   </form>
 </div>
