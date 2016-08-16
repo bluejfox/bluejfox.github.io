@@ -468,7 +468,7 @@ __QD__
 <ol>
 <li>与 + 前元素同级</li>
 <li><p>位于 + 前元素之后</p>
-<p> &nbsp;<br> $(“li ~ a”)<br> &nbsp;</p>
+<p> $(“li ~ a”)</p>
 </li>
 </ol>
 <hr>
@@ -526,9 +526,20 @@ $(&quot;div:parent&quot;)                            选取含有子元素或文
 $(&quot;div&quot;).parent(selector)                  选取div的直接父节点，selector用于过滤
 $(&quot;div&quot;).parents(selector)                 选取div的所有父节点，selector用于过滤
 $(&quot;div&quot;).parentsUntil(selector)            选取div与selector之间的节点
-</code></pre><h2 id="可见性过滤器"><a href="#可见性过滤器" class="headerlink" title="可见性过滤器"></a>可见性过滤器</h2><p>$(“div:hidden”)                            选取隐藏元素<br>    符合以下几种情况的元素会被选取<br>    1.input type=”hidden”<br>    2.display:none<br>    3.width和height设为0<br>    4.以上2和3两种元素的子元素也会被选取<br>    5.option元素<br>    **补充：visibility=true和opacity=0的元素没有被选中的原因是因为元素虽然不可见，但是还在当前文档中占有位置</p>
-<p>$(“div:visible”)                           选取可见元素<br>    符合以下情况的元素会被选取<br>    1.width或height不为0的元素<br>    2.visibility=true和opacity=0的元素<br>    3.其他任何可见元素</p>
-<h2 id="子元素过滤器"><a href="#子元素过滤器" class="headerlink" title="子元素过滤器"></a>子元素过滤器</h2><p>:first-child                               获取父元素的第一个子元素</p>
+</code></pre><h2 id="可见性过滤器"><a href="#可见性过滤器" class="headerlink" title="可见性过滤器"></a>可见性过滤器</h2><p>$(“div:hidden”)                            选取隐藏元素</p>
+<pre><code>符合以下几种情况的元素会被选取
+1.input type=&quot;hidden&quot;
+2.display:none
+3.width和height设为0
+4.以上2和3两种元素的子元素也会被选取
+5.option元素
+**补充：visibility=true和opacity=0的元素没有被选中的原因是因为元素虽然不可见，但是还在当前文档中占有位置
+</code></pre><p>$(“div:visible”)                           选取可见元素</p>
+<pre><code>符合以下情况的元素会被选取
+1.width或height不为0的元素
+2.visibility=true和opacity=0的元素
+3.其他任何可见元素
+</code></pre><h2 id="子元素过滤器"><a href="#子元素过滤器" class="headerlink" title="子元素过滤器"></a>子元素过滤器</h2><p>:first-child                               获取父元素的第一个子元素</p>
 <pre><code>此处有疑问，first, first-child, first-of-type有什么区别呢？
 个人理解
 li:first取得的是li选择器获得的集合中的第一个元素
