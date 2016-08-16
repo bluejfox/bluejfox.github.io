@@ -96,7 +96,7 @@
 文章中也会掺杂一些学习过程中遇到的知识点，目的也是为了能够举一反三扩充自己的知识点
 
 学习时参考的文章列表">
-<meta property="og:updated_time" content="2016-08-16T03:41:13.000Z">
+<meta property="og:updated_time" content="2016-08-16T03:42:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JQuery学习笔记-选择器">
 <meta name="twitter:description" content="背景在最近的面试中总被问到用过多少种JQuery，刚被问时觉得对方很过分，需要什么选择器直接网上google一下不就ok了。后来想想，自己学习技术的时候不够系统，是与他人进行技术方面的沟通时无法顺畅的沟通的主要原因之一。古人说：亡羊补牢为时未晚。想到就做，就从现在开始系统的学习吧～加油～～～
@@ -399,8 +399,23 @@ $(&quot;div&quot;).parents(selector)                 选取div的所有父节点
 $(&quot;div&quot;).parentsUntil(selector)            选取div与selector之间的节点
 </code></pre><h2 id="可见性过滤器"><a href="#可见性过滤器" class="headerlink" title="可见性过滤器"></a>可见性过滤器</h2><p>$(“div:hidden”)                            选取隐藏元素<br>    符合以下几种情况的元素会被选取<br>    1.input type=”hidden”<br>    2.display:none<br>    3.width和height设为0<br>    4.以上2和3两种元素的子元素也会被选取<br>    5.option元素<br>    **补充：visibility=true和opacity=0的元素没有被选中的原因是因为元素虽然不可见，但是还在当前文档中占有位置</p>
 <p>$(“div:visible”)                           选取可见元素<br>    符合以下情况的元素会被选取<br>    1.width或height不为0的元素<br>    2.visibility=true和opacity=0的元素<br>    3.其他任何可见元素</p>
-<h2 id="子元素过滤器"><a href="#子元素过滤器" class="headerlink" title="子元素过滤器"></a>子元素过滤器</h2><p>:first-child                               获取父元素的第一个子元素<br>    此处有疑问，first, first-child, first-of-type有什么区别呢？<br>    个人理解<br>    li:first取得的是li选择器获得的集合中的第一个元素<br>    li:first-child取得的是li选择器获得的集合中的元素为其父元素物理位置上的第一个子元素<br>    li:first-of-type取得的是li选择器获得的集合中的元素为其父元素中物理位置上第一个<strong>li</strong>子元素<br>:last-child                                获取父元素的最后一个子元素<br>:only-child                                获取其父元素内只有自己一个子元素的元素<br>:nth-child                                 获取指定索引值的元素<br>    参数是基于被过滤的元素的父元素节点的顺序。<br>    另外参数支持公式(an + b), n为周期长度，b为偏移值。例如2n + 1位下标为2的倍数 + 1的元素。<br>    譬如下面的情况使用li:nth-child(1)无法匹配到li节点，需要使用li:nth-child(2)才可以。<br>    <ul><br>        <p></p><br>        <li></li><br>    </ul><br>    例：<br>    :nth-child(1)                          索引值从1开始计算<br>    :nth-child(odd)                        奇数<br>    :nth-child(even)                       偶数</p>
-<h2 id="其他方法"><a href="#其他方法" class="headerlink" title="其他方法"></a>其他方法</h2><p>jQuery 在选择器和过滤器上，还提供了一些常用的方法，方便开发时灵活使用。</p>
+<h2 id="子元素过滤器"><a href="#子元素过滤器" class="headerlink" title="子元素过滤器"></a>子元素过滤器</h2><p>:first-child                               获取父元素的第一个子元素</p>
+<pre><code>此处有疑问，first, first-child, first-of-type有什么区别呢？
+个人理解
+li:first取得的是li选择器获得的集合中的第一个元素
+li:first-child取得的是li选择器获得的集合中的元素为其父元素物理位置上的第一个子元素
+li:first-of-type取得的是li选择器获得的集合中的元素为其父元素中物理位置上第一个**li**子元素
+</code></pre><p>:last-child                                获取父元素的最后一个子元素<br>:only-child                                获取其父元素内只有自己一个子元素的元素<br>:nth-child                                 获取指定索引值的元素</p>
+<pre><code>参数是基于被过滤的元素的父元素节点的顺序。
+另外参数支持公式(an + b), n为周期长度，b为偏移值。例如2n + 1位下标为2的倍数 + 1的元素。
+譬如下面的情况使用li:nth-child(1)无法匹配到li节点，需要使用li:nth-child(2)才可以。
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div></pre></td></tr></table></figure>
+
+例：
+:nth-child(1)                          索引值从1开始计算
+:nth-child(odd)                        奇数
+:nth-child(even)                       偶数
+</code></pre><h2 id="其他方法"><a href="#其他方法" class="headerlink" title="其他方法"></a>其他方法</h2><p>jQuery 在选择器和过滤器上，还提供了一些常用的方法，方便开发时灵活使用。</p>
 <p>is(selector/jqueryObject/element/function)<br>                                传递选择器、DOM、jquery对象或是函数来匹配元素集合，<br>                                如果这些元素中至少有一个元素匹配给定的参数，返回true</p>
 
       
