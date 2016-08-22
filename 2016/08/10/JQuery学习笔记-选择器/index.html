@@ -98,7 +98,7 @@ jQuery入门笔记之（一）选择器引">
 
 学习时参考的文章列表如下：
 jQuery入门笔记之（一）选择器引">
-<meta property="og:updated_time" content="2016-08-16T09:51:10.000Z">
+<meta property="og:updated_time" content="2016-08-17T10:29:23.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JQuery学习笔记-选择器">
 <meta name="twitter:description" content="背景最近被问到好几次JQuery的选择器，原本想选择器想用的时候上网搜一下就好。后来想想，自己学习技术的时候不够系统，是与他人进行技术方面的沟通时无法顺畅的沟通的主要原因之一。古人说：亡羊补牢为时未晚。想到就做，就从现在开始系统的学习吧～加油～～～
@@ -321,10 +321,12 @@ jQuery入门笔记之（一）选择器引">
 <pre><code>$(&quot;#nodeid, div, .className&quot;)
 </code></pre><h3 id="后代选择器"><a href="#后代选择器" class="headerlink" title="后代选择器"></a>后代选择器</h3><p>获取指定的后代对象</p>
 <pre><code>$(&quot;ul li a&quot;)
+等价的JQuery函数find
 </code></pre><h3 id="通配选择器"><a href="#通配选择器" class="headerlink" title="通配选择器"></a>通配选择器</h3><p>获取所有DOM对象</p>
 <pre><code>$(&quot;*&quot;)
 </code></pre><h2 id="高级选择器"><a href="#高级选择器" class="headerlink" title="高级选择器"></a>高级选择器</h2><h3 id="子选择器"><a href="#子选择器" class="headerlink" title="子选择器"></a>子选择器</h3><p>取得当前直接子代元素</p>
 <pre><code>$(&quot;ul &gt; li&quot;)
+等价的JQuery函数children
 </code></pre><hr>
 <p>PS:</p>
 <pre><code>后代选择器和子选择器的区别是
@@ -651,7 +653,7 @@ li:first-of-type取得的是li选择器获得的集合中的元素为其父元�
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-count">6</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -661,7 +663,7 @@ li:first-of-type取得的是li选择器获得的集合中的元素为其父元�
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
