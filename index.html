@@ -258,6 +258,107 @@
             
               
                 
+                <a class="post-title-link" href="/2016/08/29/JavaScript事件处理中常用的几个函数/" itemprop="url">
+                  JavaScript事件处理中常用的几个函数
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-29T22:13:04+08:00" content="2016-08-29">
+              2016-08-29
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>背景知识：<br>众所周知，DOM事件分为三个阶段：</p>
+
+<p><strong>捕获</strong> 阶段：在事件对象到达事件目标之前，事件对象必须从window经过目标的祖先节点传播到事件目标。 这个阶段被我们称之为捕获阶段。在这个阶段注册的事件监听器在事件到达其目标前必须先处理事件。</p>
+<p><strong>目标</strong> 阶段：事件对象到达其事件目标。 这个阶段被我们称为目标阶段。一旦事件对象到达事件目标，该阶段的事件监听器就要对它进行处理。如果一个事件对象类型被标志为不能冒泡。那么对应的事件对象在到达此阶段时就会终止传播。</p>
+<p><strong>冒泡</strong> 阶段： 事件对象以一个与捕获阶段相反的方向从事件目标传播经过其祖先节点传播到window。这个阶段被称之为冒泡阶段。在此阶段注册的事件监听器会对相应的冒泡事件进行处理。</p>
+<p>在DOM事件执行的过程中，以下几个函数会被经常用到：<br>1.event.stopPropagation<br>阻止当前事件的进一步冒泡行为</p>
+<p>2.event.stopImmediatePropagation<br>阻止当前事件的进一步冒泡行为并阻止当前事件所在元素上的所有相同事件处理函数的继续执行<br>注：绑定在元素上的事件的执行顺序与绑定顺序相同</p>
+<p>3.event.preventDefault<br>取消当前事件的默认动作，譬如点击单选框(radioButton)后的调用此函数可以取消单选框选中动作</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/08/22/Webkit详解/" itemprop="url">
                   Webkit详解
                 </a>
@@ -1126,7 +1227,7 @@ li:first-of-type取得的是li选择器获得的集合中的元素为其父元�
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-count">7</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1136,7 +1237,7 @@ li:first-of-type取得的是li选择器获得的集合中的元素为其父元�
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
