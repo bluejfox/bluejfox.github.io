@@ -302,11 +302,29 @@
       
         
           
-            <p>#Angular的表达式<br><em>属性表达式：<br>属性表达式是对应于当前的作用域的，不像Javascript对应的是全局window对象。
-</em>允许未定义值：<br>执行表达式时，AngularJS能够允许undefined或者null，不像Javascript会抛出一个异常。<br><em>没有控制结构：<br>你不能在AngularJS表达式中使用“条件判断”、“循环”、“抛出异常”等控制结构。
-</em>过滤器(类似unix中的管道操作符)： 你可以通过过滤器链来传递表达式的结果。例如将日期对象转变成指定的阅读友好的格式。</p>
-<p>如何创建过滤器?<br>-&gt;app.filter<br>内置过滤器:<br>currency, date等<br>要注意这里不是或操作符！</p>
+            <h1 id="Angular的表达式"><a href="#Angular的表达式" class="headerlink" title="Angular的表达式"></a>Angular的表达式</h1><ul>
+<li>属性表达式：<br>属性表达式是对应于当前的作用域的，不像Javascript对应的是全局window对象。</li>
+<li>允许未定义值：<br>执行表达式时，AngularJS能够允许undefined或者null，不像Javascript会抛出一个异常。</li>
+<li>没有控制结构：<br>你不能在AngularJS表达式中使用“条件判断”、“循环”、“抛出异常”等控制结构。</li>
+<li>过滤器(类似unix中的管道操作符)： 你可以通过过滤器链来传递表达式的结果。例如将日期对象转变成指定的阅读友好的格式。</li>
+</ul>
+<p>内置过滤器:<br>currency, date等<br>如何创建自定义过滤器?<br>-&gt;app.filter</p>
+<p>要注意这里不是或操作符！<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;&#123; greet | upperCase&#125;&#125;</div></pre></td></tr></table></figure></p>
 <p>可以通过冒号来给过滤器传递参数，比如，将123显示成带有两位小数的形式<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="number">123</span> | number:<span class="number">2</span></div></pre></td></tr></table></figure></p>
+<h1 id="引导程序"><a href="#引导程序" class="headerlink" title="引导程序"></a>引导程序</h1><h1 id="注入器"><a href="#注入器" class="headerlink" title="注入器"></a>注入器</h1><p><a href="http://www.html-js.com/article/Injection-with-Angular-development-web-application-AngularJS-explain-only-dependence" target="_blank" rel="external">参考文章</a></p>
+<p>通过injector.annotate来推测参数<br>使用injector.invoke来进行实例参数注入</p>
+<ul>
+<li><p>angular会在定义的函数原型链中添加$inject属性，此属性中放置函数的参数名称</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> aController = <span class="function"><span class="keyword">function</span>(<span class="params">$scope, greet</span>)</span>&#123;&#125;;</div><div class="line">aController.$inject = [<span class="string">"$scope"</span>, <span class="string">"greet"</span>];</div></pre></td></tr></table></figure>
+</li>
+<li><p>另一种注释方式为内联注释，这种方式的优点为在对代码进行压缩时不会收到影响。否则$scope和greet可能会被转义。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">angular.module().controller(<span class="string">"MyController"</span>, [<span class="string">"$scope"</span>, <span class="string">"greet"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">$scope, greet</span>)</span>&#123;&#125;]);</div></pre></td></tr></table></figure>
+<hr>
+<p>  注释函数用于提取指定函数的参数<br>  var injector = angular.injector([‘ng’]);<br>  injector.annotate(function($q,greeter){})</p>
+</li>
+</ul>
+<p>由此可见，最安全的方式为使用最下面的方式，但是此方式写起来略显繁琐。还好还有各种第三方应用的支持。<br>譬如可以使用ngMin来对文件进行解析并转换，他会做如下的转换。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">angular.module().controller(<span class="string">"MyController"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">$scope, greet</span>)</span>&#123;&#125;);</div><div class="line"></div><div class="line">=&gt;</div><div class="line"></div><div class="line">angular.module().controller(<span class="string">"MyController"</span>, [<span class="string">"$scope"</span>, <span class="string">"greet"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">$scope, greet</span>)</span>&#123;&#125;]);</div></pre></td></tr></table></figure>
 
           
         
