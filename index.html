@@ -304,7 +304,7 @@
           
             <p>＃ AngularJS 模板</p>
 <h2 id="Angular的表达式"><a href="#Angular的表达式" class="headerlink" title="Angular的表达式"></a>Angular的表达式</h2><ul>
-<li>属性表达式：<br>属性表达式是对应于当前的作用域的，不像Javascript对应的是全局window对象。</li>
+<li>作用域：<br>属性表达式是对应于当前的作用域的，不像Javascript对应的是全局window对象。</li>
 <li>允许未定义值：<br>执行表达式时，AngularJS能够允许undefined或者null，不像Javascript会抛出一个异常。</li>
 <li>没有控制结构：<br>你不能在AngularJS表达式中使用“条件判断”、“循环”、“抛出异常”等控制结构。</li>
 <li>过滤器(类似unix中的管道操作符)： 你可以通过过滤器链来传递表达式的结果。例如将日期对象转变成指定的阅读友好的格式。</li>
@@ -313,9 +313,14 @@
 <li>不能使用new操作符新建对象</li>
 <li>不能使用<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_Operators" target="_blank" rel="external">按位操作符</a>,逗号和void关键字<br><em>如果想使用更复杂的语句，可以在controller的函数中定义后，在view中调用该函数。</em><br><em>如果想自己指定一个angular表达式，可以使用<a href="https://docs.angularjs.org/api/ng/type/$rootScope.Scope#$eval" target="_blank" rel="external">$eval</a>函数。</em></li>
 </ul>
+<h3 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h3><p>Angular不使用javascript的eval函数，而使用<a href="https://docs.angularjs.org/api/ng/service/$parse" target="_blank" rel="external">$parse</a>服务执行其表达式。<br>在Angular代码中无法直接访问window和location等全局对象。目的是为了减少全局命名空间的污染而导致的恶心的BUG。<br>作为替代的，可以使用$window和$location。<br>你也可以使用this关键字访问当前的作用域对象。</p>
 <h3 id="内置过滤器"><a href="#内置过滤器" class="headerlink" title="内置过滤器:"></a>内置过滤器:</h3><p>currency, date, filter, orderBy等<br>如何创建自定义过滤器?<br>-&gt;app.filter</p>
 <p>要注意这里不是或操作符！<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;&#123; greet | upperCase&#125;&#125;</div></pre></td></tr></table></figure></p>
 <p>可以通过冒号来给过滤器传递参数，比如，将123显示成带有两位小数的形式<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="number">123</span> | number:<span class="number">2</span></div></pre></td></tr></table></figure></p>
+<h3 id="event"><a href="#event" class="headerlink" title="$event"></a>$event</h3><p>在<a href="https://docs.angularjs.org/api/ng/directive/ngClick" target="_blank" rel="external">ngClick</a>或<a href="https://docs.angularjs.org/api/ng/directive/ngFocus" target="_blank" rel="external">ngFocus</a>这样的指令(Directive)中可以传递$event对象。<br>当页面中引入了JQuery时，$event对象是<a href="http://api.jquery.com/category/events/event-object/" target="_blank" rel="external">JQuery Event Object</a>。<br>否则，$event对象是<a href="https://gist.github.com/esfand/9638882" target="_blank" rel="external">jqLite</a>对象。顾名思义，angularjs自己实现了一套JQuery的精简版。</p>
+<h3 id="一次绑定"><a href="#一次绑定" class="headerlink" title="一次绑定"></a>一次绑定</h3><p>当表达式是以::开始的场合，此表达式被视为一次绑定。也就是说在此表达式获得值（non-undifined）后，$watch函数不会再更新此表达式的值。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;&#123;::name&#125;&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="一次绑定的用处"><a href="#一次绑定的用处" class="headerlink" title="一次绑定的用处"></a>一次绑定的用处</h4><p>原因主要是为了减少浏览器资源的占用。</p>
+<h4 id="Value-stabilization-algorithm"><a href="#Value-stabilization-algorithm" class="headerlink" title="Value stabilization algorithm"></a>Value stabilization algorithm</h4><p><a href="https://docs.angularjs.org/guide/expression" target="_blank" rel="external">此处不懂</a></p>
 <h2 id="引导程序"><a href="#引导程序" class="headerlink" title="引导程序"></a>引导程序</h2><p>To be continue.</p>
 <h2 id="注入器"><a href="#注入器" class="headerlink" title="注入器"></a>注入器</h2><p><a href="http://www.html-js.com/article/Injection-with-Angular-development-web-application-AngularJS-explain-only-dependence" target="_blank" rel="external">参考文章</a></p>
 <p>通过injector.annotate来推测参数<br>使用injector.invoke来进行实例参数注入</p>
@@ -331,7 +336,7 @@
 </ul>
 <p>由此可见，最安全的方式为使用最下面的方式，但是此方式写起来略显繁琐。还好还有各种第三方应用的支持。<br>譬如可以使用ngMin来对文件进行解析并转换，他会做如下的转换。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">angular.module().controller(<span class="string">"MyController"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">$scope, greet</span>)</span>&#123;&#125;);</div><div class="line"></div><div class="line">=&gt;</div><div class="line"></div><div class="line">angular.module().controller(<span class="string">"MyController"</span>, [<span class="string">"$scope"</span>, <span class="string">"greet"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">$scope, greet</span>)</span>&#123;&#125;]);</div></pre></td></tr></table></figure>
-<h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><p>下面的文章写的很好，对于JavaScript的原型继承说明的很到位。<br><a href="http://www.angularjs.cn/A09C" target="_blank" rel="external">参考文章</a><br>AngularJs的四个作用域还不算完全看懂，需要实战演练和再次理解。<br>AngularJS存在四种作用域:</p>
+<h2 id="作用域-1"><a href="#作用域-1" class="headerlink" title="作用域"></a>作用域</h2><p>下面的文章写的很好，对于JavaScript的原型继承说明的很到位。<br><a href="http://www.angularjs.cn/A09C" target="_blank" rel="external">参考文章</a><br>AngularJs的四个作用域还不算完全看懂，需要实战演练和再次理解。<br>AngularJS存在四种作用域:</p>
 <ul>
 <li>普通的带原型继承的作用域<br>ng-include, ng-switch, ng-controller, directive with scope: true；</li>
 <li>普通的带原型继承的，并且有赋值行为的作用域<br>ng-repeat，ng-repeat为每一个迭代项创建一个普通的有原型继承的子作用域，但同时在子作用域中创建新属性存储迭代项；</li>
