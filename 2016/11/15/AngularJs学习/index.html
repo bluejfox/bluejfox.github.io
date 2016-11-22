@@ -84,28 +84,31 @@
 
 
 
-<meta name="description" content="Angular的表达式
+<meta name="description" content="＃AngularJS 模板
+Angular的表达式
 属性表达式：属性表达式是对应于当前的作用域的，不像Javascript对应的是全局window对象。
 允许未定义值：执行表达式时，AngularJS能够允许undefined或者null，不像Javascript会抛出一个异常。
 没有控制结构：你不能在AngularJS表达式中使用“条件判断”、“循环”、“抛出异常”等控制结构。
-过滤器(类似unix中的管道操作符)： 你可">
+过滤器(类似un">
 <meta property="og:type" content="article">
 <meta property="og:title" content="AngularJs学习">
 <meta property="og:url" content="http://yoursite.com/2016/11/15/AngularJs学习/index.html">
 <meta property="og:site_name" content="Ray Han">
-<meta property="og:description" content="Angular的表达式
+<meta property="og:description" content="＃AngularJS 模板
+Angular的表达式
 属性表达式：属性表达式是对应于当前的作用域的，不像Javascript对应的是全局window对象。
 允许未定义值：执行表达式时，AngularJS能够允许undefined或者null，不像Javascript会抛出一个异常。
 没有控制结构：你不能在AngularJS表达式中使用“条件判断”、“循环”、“抛出异常”等控制结构。
-过滤器(类似unix中的管道操作符)： 你可">
-<meta property="og:updated_time" content="2016-11-16T07:01:07.000Z">
+过滤器(类似un">
+<meta property="og:updated_time" content="2016-11-17T07:33:44.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AngularJs学习">
-<meta name="twitter:description" content="Angular的表达式
+<meta name="twitter:description" content="＃AngularJS 模板
+Angular的表达式
 属性表达式：属性表达式是对应于当前的作用域的，不像Javascript对应的是全局window对象。
 允许未定义值：执行表达式时，AngularJS能够允许undefined或者null，不像Javascript会抛出一个异常。
 没有控制结构：你不能在AngularJS表达式中使用“条件判断”、“循环”、“抛出异常”等控制结构。
-过滤器(类似unix中的管道操作符)： 你可">
+过滤器(类似un">
 
 
 
@@ -308,16 +311,18 @@
       
 
       
-        <h1 id="Angular的表达式"><a href="#Angular的表达式" class="headerlink" title="Angular的表达式"></a>Angular的表达式</h1><ul>
+        <p>＃AngularJS 模板</p>
+<h2 id="Angular的表达式"><a href="#Angular的表达式" class="headerlink" title="Angular的表达式"></a>Angular的表达式</h2><ul>
 <li>属性表达式：<br>属性表达式是对应于当前的作用域的，不像Javascript对应的是全局window对象。</li>
 <li>允许未定义值：<br>执行表达式时，AngularJS能够允许undefined或者null，不像Javascript会抛出一个异常。</li>
 <li>没有控制结构：<br>你不能在AngularJS表达式中使用“条件判断”、“循环”、“抛出异常”等控制结构。</li>
 <li>过滤器(类似unix中的管道操作符)： 你可以通过过滤器链来传递表达式的结果。例如将日期对象转变成指定的阅读友好的格式。</li>
 </ul>
-<p>内置过滤器:<br>currency, date等<br>如何创建自定义过滤器?<br>-&gt;app.filter</p>
+<p>内置过滤器:<br>currency, date, filter, orderBy等<br>如何创建自定义过滤器?<br>-&gt;app.filter</p>
 <p>要注意这里不是或操作符！<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;&#123; greet | upperCase&#125;&#125;</div></pre></td></tr></table></figure></p>
 <p>可以通过冒号来给过滤器传递参数，比如，将123显示成带有两位小数的形式<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="number">123</span> | number:<span class="number">2</span></div></pre></td></tr></table></figure></p>
-<h1 id="引导程序"><a href="#引导程序" class="headerlink" title="引导程序"></a>引导程序</h1><h1 id="注入器"><a href="#注入器" class="headerlink" title="注入器"></a>注入器</h1><p><a href="http://www.html-js.com/article/Injection-with-Angular-development-web-application-AngularJS-explain-only-dependence" target="_blank" rel="external">参考文章</a></p>
+<h2 id="引导程序"><a href="#引导程序" class="headerlink" title="引导程序"></a>引导程序</h2><p>To be continue.</p>
+<h2 id="注入器"><a href="#注入器" class="headerlink" title="注入器"></a>注入器</h2><p><a href="http://www.html-js.com/article/Injection-with-Angular-development-web-application-AngularJS-explain-only-dependence" target="_blank" rel="external">参考文章</a></p>
 <p>通过injector.annotate来推测参数<br>使用injector.invoke来进行实例参数注入</p>
 <ul>
 <li><p>angular会在定义的函数原型链中添加$inject属性，此属性中放置函数的参数名称</p>
@@ -331,7 +336,16 @@
 </ul>
 <p>由此可见，最安全的方式为使用最下面的方式，但是此方式写起来略显繁琐。还好还有各种第三方应用的支持。<br>譬如可以使用ngMin来对文件进行解析并转换，他会做如下的转换。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">angular.module().controller(<span class="string">"MyController"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">$scope, greet</span>)</span>&#123;&#125;);</div><div class="line"></div><div class="line">=&gt;</div><div class="line"></div><div class="line">angular.module().controller(<span class="string">"MyController"</span>, [<span class="string">"$scope"</span>, <span class="string">"greet"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">$scope, greet</span>)</span>&#123;&#125;]);</div></pre></td></tr></table></figure>
-
+<h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><p>下面的文章写的很好，对于JavaScript的原型继承说明的很到位。<br><a href="http://www.angularjs.cn/A09C" target="_blank" rel="external">参考文章</a><br>AngularJs的四个作用域还不算完全看懂，需要实战演练和再次理解。<br>AngularJS存在四种作用域:</p>
+<ul>
+<li>普通的带原型继承的作用域<br>ng-include, ng-switch, ng-controller, directive with scope: true；</li>
+<li>普通的带原型继承的，并且有赋值行为的作用域<br>ng-repeat，ng-repeat为每一个迭代项创建一个普通的有原型继承的子作用域，但同时在子作用域中创建新属性存储迭代项；</li>
+<li>“Isolate”作用域<br>directive with scope: {…}， 该作用域没有原型继承，但可以通过’=’, ‘@’, 和 ‘&amp;’与父作用域通信。</li>
+<li>“transcluded”作用域<br>directive with transclude:true，它也是普通的带原型继承的作用域，但它与“Isolate”作用域是相邻的好基友。</li>
+</ul>
+<h2 id="控制器的单体测试"><a href="#控制器的单体测试" class="headerlink" title="控制器的单体测试"></a>控制器的单体测试</h2><p>使用karma进行测试，简单使用了一下，看起来很爽。等待学习。</p>
+<h1 id="自定义组件"><a href="#自定义组件" class="headerlink" title="自定义组件"></a>自定义组件</h1><h1 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h1><p>ngSrc标签阻止了浏览器向非法的目的地发送HTTP请求。<br>此句话的意思是<img src属性会在浏览器加载页面时就自动执行。但是此时angularjs还没有加载完成，因此浏览器会向服务器请求src属性中的而导致请求失败。<="" p="">
+</p>
       
     </div>
 
@@ -504,7 +518,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Angular的表达式"><span class="nav-number">1.</span> <span class="nav-text">Angular的表达式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#引导程序"><span class="nav-number">2.</span> <span class="nav-text">引导程序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#注入器"><span class="nav-number">3.</span> <span class="nav-text">注入器</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Angular的表达式"><span class="nav-number">1.</span> <span class="nav-text">Angular的表达式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#引导程序"><span class="nav-number">2.</span> <span class="nav-text">引导程序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注入器"><span class="nav-number">3.</span> <span class="nav-text">注入器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#作用域"><span class="nav-number">4.</span> <span class="nav-text">作用域</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#控制器的单体测试"><span class="nav-number">5.</span> <span class="nav-text">控制器的单体测试</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#自定义组件"><span class="nav-number"></span> <span class="nav-text">自定义组件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#指令"><span class="nav-number"></span> <span class="nav-text">指令</span></a></div>
             
           </div>
         </section>
