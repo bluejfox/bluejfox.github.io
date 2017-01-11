@@ -258,6 +258,106 @@
             
               
                 
+                <a class="post-title-link" href="/2017/01/11/如何在MacOS上打开没有Certification的App/" itemprop="url">
+                  如何在MacOS上打开没有Certification的App
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-01-11T10:33:26+08:00" content="2017-01-11">
+              2017-01-11
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>因为开发的原因，经常会使用一些开源的App软件，这些软件本身并没有经过Apple的认证，直接通过某种在代码外部加一个壳的形式在各个系统中使用。</p>
+<p>加上MacOS本身对于软件的安全检测比较严格，所以此类软件打开时需要稍微费一些功夫。</p>
+<p>现象：<br>打开软件，显示此软件已损坏，无法打开，请把软件移至垃圾桶。</p>
+<p>解决办法：<br>1.在Console输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo spctl --master-disable</div></pre></td></tr></table></figure></p>
+<p>2.打开系统偏好设置-&gt;安全性与隐私，确认允许从以下位置下载应用中已经选中Anywhere.</p>
+<p>3.右键点击软件，选择打开，此时软件可正常打开</p>
+<p>4.因为此步骤仅需第一次打开软件时需要，并且为了系统的安全，最好输入下面的命令行关闭此策略<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo spctl --master-enable</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/12/22/Flex的Grow-Shrink-basis-1/" itemprop="url">
                   Flex的Grow,Shrink,basis
                 </a>
@@ -1253,101 +1353,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/17/(JQuery)attr和prop的区别/" itemprop="url">
-                  TODO-(JQuery)attr和prop的区别
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-17T14:32:07+08:00" content="2016-08-17">
-              2016-08-17
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>今天给EM_TOOLS添加功能的时候遇到了通过attr函数无法取得type=file控件的files属性的问题。<br>简单了Google了一下，目前了解到的这两个函数的区别为attr取得的是html标签上能看到的属性，而prop取得的<br>是DOM的属性。</p>
-<p>具体详细的测试和了解稍后补充。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1393,7 +1398,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">14</span>
+              <span class="site-state-item-count">15</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1403,7 +1408,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1468,8 +1473,8 @@
       <div class="footer-inner">
         <div class="copyright" >
   
-  &copy; 
-  <span itemprop="copyrightYear">2016</span>
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
